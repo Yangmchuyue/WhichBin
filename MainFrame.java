@@ -122,10 +122,8 @@ public class MainFrame  extends JFrame implements ActionListener
 				//System.out.println("menuCanceled");
 			}
 		});
-
-        
-
 	}		
+	
 	public void actionPerformed(ActionEvent e) 
 	{
 		if(e.getSource() == playButton)
