@@ -1,6 +1,7 @@
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.*;
+import java.awt.*;
 import java.util.Random;
 
 public class TrashCan extends JPanel{
@@ -12,9 +13,13 @@ public class TrashCan extends JPanel{
     private static int LEVEL5 = 3000;
 
     private static int MAX1 = 400;
-    private static int MAX2 = 700;
-    private static int MAX3 = 1000;
-    private static int MAX4 = 15000; // change thses later.
+    private static int MAX2 = 800;
+    private static int MAX3 = 1200;
+    private static int MAX4 = 16000;
+
+    private static String[] allTrash = {
+        "0BlackPlastic.png" // cindy finish this
+    };
 
     // instance fields
     // private Trash trash; // stores a Trash
@@ -23,14 +28,17 @@ public class TrashCan extends JPanel{
     private Random random;
     private int randomNumber;
     private int stop;
+    private JButton display;
 
-    public static void main (String[] arguments) {
+    /**public static void main (String[] arguments) {
         TrashCan trashcan = new TrashCan();
         trashcan.getRandomNumber();
-    }
+    } **/
 
     public TrashCan() {
-        super();
+        super(new FlowLayout());
+        display = new JButton("", new ImageIcon("button_play.png"));
+        this.add(display);
         random = new Random();
         randomNumber = 0;
         timer = new Timer();
