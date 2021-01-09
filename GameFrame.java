@@ -55,6 +55,7 @@ public class GameFrame extends JFrame{
                     JOptionPane.showMessageDialog(new JFrame(),
                         "Game Over! That does not belong in the garbage bin. Better luck next time!", "GAME OVER!", JOptionPane.ERROR_MESSAGE);
                         closeFrame();
+                        comm.showMainFrame();
                 }
             }
         });
@@ -74,6 +75,7 @@ public class GameFrame extends JFrame{
                     JOptionPane.showMessageDialog(new JFrame(),
                         "Game Over! That does not belong in the recycling bin. Better luck next time!", "GAME OVER!", JOptionPane.ERROR_MESSAGE);
                     closeFrame();
+                    comm.showMainFrame();
                 }
             }
         });
@@ -93,6 +95,7 @@ public class GameFrame extends JFrame{
                     JOptionPane.showMessageDialog(new JFrame(),
                         "Game Over! That does not belong in the green bin. Better luck next time!", "GAME OVER!", JOptionPane.ERROR_MESSAGE);
                     closeFrame();
+                    comm.showMainFrame();
                 }
             }
         });
