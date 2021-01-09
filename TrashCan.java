@@ -43,7 +43,7 @@ public class TrashCan extends JPanel{
         displayholder = new JPanel();
         this.add(displayholder);
         display = new JButton("", new ImageIcon("images/0BlackPlastic.png"));
-        display.setMaximumSize(new Dimension(700, 700));
+        display.setMaximumSize(new Dimension(400, 400));
         displayholder.add(display);
         random = new Random();
         randomNumber = 0;
