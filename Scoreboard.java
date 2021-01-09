@@ -62,5 +62,6 @@ public class Scoreboard extends JPanel{
         this.add(scoreLabel);
         this.add(timeLabel);
     }
+    //Test Git Commands
 }
 
