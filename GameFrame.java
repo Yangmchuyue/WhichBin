@@ -31,34 +31,7 @@ public class GameFrame extends JFrame{
         button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Go back to mainFrame
-				comm.showMainFrame();
-            }
-        });
-        menuPanel.add(button);
-
-
-        guessPanel = new JPanel(new GridLayout(1,3, 10, 50));
-        garbage = new JButton("", new ImageIcon("images/Garbage.png"));
-        garbage.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //Check to see if correct
-                trashPrompt.endLevel(); // this is going to give an output, check the string with the input etc. i will work on this.
-                trashPrompt.startLevel(scoreboard.getScore()); // starts the next level
-            }
-        });
-        guessPanel.add(garbage);
-        recycling = new JButton("", new ImageIcon("images/Recycle.png"));
-        recycling.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //Check to see if correct
-                trashPrompt.endLevel(); // this is going to give an output
-                trashPrompt.startLevel(scoreboard.getScore()); // starts the next level
-            }
-        });
-        guessPanel.add(recycling);
+        
         compost = new JButton("", new ImageIcon("images/GreenBin.png"));
         compost.addActionListener(new ActionListener(){
             @Override
