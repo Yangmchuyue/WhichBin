@@ -19,7 +19,6 @@ public class Common
 		// initialize special colours
 		mainFrame = new MainFrame();
 		//setSize(mainFrame);
-		
 	}
 
 	private void hideAllFrames()

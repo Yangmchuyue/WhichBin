@@ -73,24 +73,14 @@ public class MainFrame  extends JFrame implements ActionListener
         setVisible(true);		
         
 
-	}		
-	public void actionPerformed(ActionEvent e) 
-	{
-		if(e.getSource() == playButton)
+		if(e.getSource() == buttonUserFrame)
 		{
-			//comm.showGameFrame();
+			//comm.showUserListFrame();
 		}
-		if(e.getSource() == scoreButton)
-		{
-			//comm.showScorePanel();
-		}		
-		if(e.getSource() == exitButton)
-		{
-			System.exit(0);
-		}		
 	}
-		public static void main(String[] args)
+	public static void main(String[] args)
 	{
-		MainFrame mf = new MainFrame();
+		Common common = new Common();
+		MainFrame mf = new MainFrame(common);
 	}
 }
