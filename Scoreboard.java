@@ -36,10 +36,9 @@ public class Scoreboard extends JPanel{
 
     //Returns the elapsed time in seconds
     //May throw exception
-    public double getTimeElapsed(){
+    public int getTimeElapsed(){
         long elapsedTime = System.nanoTime() - startTime;
-        double elapsedTimeInSeconds = (double) elapsedTime/1000000000;
-
+        int elapsedTimeInSeconds = (int) elapsedTime/1000000000;
         return elapsedTimeInSeconds;
     }
 
@@ -52,7 +51,6 @@ public class Scoreboard extends JPanel{
         timeLabel = new JButton("Time: " + getTimeElapsed());
         this.add(scoreLabel);
         this.add(timeLabel);
-        
     }
     public void displayNewTime(){
         this.remove(scoreLabel);
