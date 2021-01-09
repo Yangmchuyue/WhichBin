@@ -41,7 +41,5 @@ public class Common
 		gameFrame.closeFrame(); // Closes this GameFrame
 		showMainFrame();
 	}
-} 
-	// end of class Common}
+} // end of class Common
 	
-}
