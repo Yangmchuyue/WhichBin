@@ -28,6 +28,7 @@ public class GameFrame extends JFrame{
 
         menuPanel = new JPanel(new FlowLayout());
         JButton button = new JButton("", new ImageIcon("button_back.png"));
+        button.setContentAreaFilled(false);
         button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -40,6 +41,7 @@ public class GameFrame extends JFrame{
 
         guessPanel = new JPanel(new GridLayout(1,3, 10, 50));
         garbage = new JButton("", new ImageIcon("images/Garbage.png"));
+        garbage.setContentAreaFilled(false);
         garbage.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,6 +52,7 @@ public class GameFrame extends JFrame{
         });
         guessPanel.add(garbage);
         recycling = new JButton("", new ImageIcon("images/Recycle.png"));
+        recycling.setContentAreaFilled(false);
         recycling.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -60,6 +63,7 @@ public class GameFrame extends JFrame{
         });
         guessPanel.add(recycling);
         compost = new JButton("", new ImageIcon("images/GreenBin.png"));
+        compost.setContentAreaFilled(false);
         compost.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
