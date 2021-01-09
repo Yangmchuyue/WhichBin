@@ -53,6 +53,8 @@ public class MainFrame  extends JFrame implements ActionListener
 		mb.setBackground(Common.color_d_brown);
         JMenu about = new JMenu("About");
         mb.add(about);
+		JMenu howTo = new JMenu("How To Play");
+		mb.add(howTo);
 		
         // Panel for labels
 		//JPanel mainPanel = new JPanel();	
