@@ -1,8 +1,9 @@
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.Random;
 import javax.swing.*;
 import java.awt.*;
-import java.util.Random;
+
 
 public class TrashCan extends JPanel{
     // class fields
@@ -24,7 +25,7 @@ public class TrashCan extends JPanel{
     };
 
     // instance fields
-    private Trash trash; // stores a Trash
+    private Trash trash;
     private Timer timer;
     private TimerTask timerTask;
     private Random random;
@@ -33,38 +34,28 @@ public class TrashCan extends JPanel{
     private JPanel displayholder;
     private JButton display;
     Common comm;
-    /**public static void main (String[] arguments) {
-     TrashCan trashcan = new TrashCan();
-     trashcan.getRandomNumber();
-     } **/
 
+    // Constructor
     public TrashCan(Common comm) {
         
         super(new FlowLayout());
         this.comm = comm;
         displayholder = new JPanel();
         this.add(displayholder);
-        display = new JButton("", new ImageIcon("images/0BlackPlastic.png"));
+        display = new JButton("", new ImageIcon(allTrash[0]));
         display.setMaximumSize(new Dimension(400, 400));
         displayholder.add(display);
         displayholder.validate();
     
         random = new Random();
         randomNumber = 0;
-        trash =  new Trash(0, "images/0BlackPlastic.png");
-        // timer = new Timer();
+        trash =  new Trash(0, allTrash[0]);
         stop = LEVEL1;
-        //timerTask = new TimerTask() {
-        //    public void run() {
-        //        System.out.println ("Game Over!");} // REPLACE THIS WITH JOPTION PANEL
-        //};
         startLevel(0);
     }
 
-
-    // start
+    // Start Level
     public void startLevel(int score) {
-        System.out.println("Level Starting!");
         setRandomNumber();
         displayholder.remove(display);
         display = new JButton("", new ImageIcon(allTrash[randomNumber]));
@@ -79,13 +70,10 @@ public class TrashCan extends JPanel{
         startTimer();
     }
 
-    // end
+    // End Level
     public int endLevel(){
         endTimer();
-        System.out.println("Guess Submitted1. Timer Ends.");
         int gotten = getNumber();
-        System.out.println(gotten);
-        System.out.println("Guess Submitted2. Timer Ends.");
         return gotten;
     }
 
@@ -103,33 +91,24 @@ public class TrashCan extends JPanel{
         timer = new Timer();
         timerTask = new TimerTask() {
             public void run() {
-                System.out.println ("Game Over Again! For Realz!");
-                /*
-                JOptionPane.showMessageDialog(new JFrame(),
-                        "It's trash can  not trash cannot.", "Game Over", JOptionPane.ERROR_MESSAGE);
-                */
-
                 String[] options = {"OK"}; 
-                int x = JOptionPane.showOptionDialog(null, "It's trash can  not trash cannot.",
-                        "Game Over",
+                int x = JOptionPane.showOptionDialog(null, "Game Over! You have taken too long to respond. Better luck next time!",
+                        "GAME OVER!",
                         JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
                 if(x == 0)
                 {
                     comm.closeGameFrame();
                 }                
-
-
             }
         };
         timer.schedule(timerTask, stop);
-        //timer.schedule(timerTask, 1000);
     }
 
     public void endTimer(){
         timer.cancel();
     }
 
-    // Milliseconds
+    // Response Time
     public void setTime(int score) {
         if (score <= MAX1 ) {
             stop = LEVEL1;
@@ -148,6 +127,7 @@ public class TrashCan extends JPanel{
         }
     }
 
+    // Trash Object
     public Trash getTrash(){
         return trash;
     }
@@ -160,6 +140,5 @@ public class TrashCan extends JPanel{
         String name = trash.getImageName();
         int first = name.charAt(7) - '0';
         return first;
-
     }
 }
