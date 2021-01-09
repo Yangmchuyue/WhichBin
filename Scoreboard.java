@@ -35,6 +35,7 @@ public class Scoreboard extends JPanel{
     }
 
     //Returns the elapsed time in seconds
+    //May throw exception
     public double getTimeElapsed(){
         long elapsedTime = System.nanoTime() - startTime;
         double elapsedTimeInSeconds = (double) elapsedTime/1000000000;
