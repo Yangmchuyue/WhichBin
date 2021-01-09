@@ -69,6 +69,8 @@ public class Scoreboard extends JPanel{
         timeLabel.setText("Time: " + getTimeElapsed());
         this.add(scoreLabel);
         this.add(timeLabel);
+        this.revalidate();
+        this.repaint();
     }
     public void displayNewTime(){
         this.remove(scoreLabel);
@@ -77,6 +79,8 @@ public class Scoreboard extends JPanel{
         timeLabel.setText("Time: " + getTimeElapsed());
         this.add(scoreLabel);
         this.add(timeLabel);
+        this.revalidate();
+        this.repaint();
     }
     //Test Git Commands
 }
