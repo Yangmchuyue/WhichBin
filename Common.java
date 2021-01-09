@@ -21,13 +21,13 @@ public class Common
 	public void initialize() throws IOException
 	{
 		mainFrame = new MainFrame(this);	
-		gameFrame = new GameFrame(this);
+		//gameFrame = new GameFrame(this);
 	}
 
 	private void hideAllFrames()
 	{
 		mainFrame.setVisible(false);	
-		gameFrame.setVisible(false);
+		//gameFrame.setVisible(false);
 	}
 	
 	public void showMainFrame()
@@ -35,11 +35,12 @@ public class Common
 		hideAllFrames();
 		mainFrame.setVisible(true);	
 	}
-	
+	/*
 	public void showGameFrame()
 	{
 		hideAllFrames();
 		gameFrame.setVisible(true);	
 	}	
+	*/
 	
 }
