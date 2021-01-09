@@ -35,12 +35,14 @@ public class Common
 		hideAllFrames();
 		mainFrame.setVisible(true);	
 	}
-	/*
-	public void showGameFrame()
+	public void setGameFrame(GameFrame gameFrame)
 	{
-		hideAllFrames();
-		gameFrame.setVisible(true);	
-	}	
-	*/
+		this.gameFrame = gameFrame;
+	}
+	public void closeGameFrame()
+	{
+		gameFrame.closeFrame(); // Closes this GameFrame
+		showMainFrame();
+	}
 	
 }

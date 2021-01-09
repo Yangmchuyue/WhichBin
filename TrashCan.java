@@ -18,9 +18,9 @@ public class TrashCan extends JPanel{
     private static int MAX4 = 1600;
 
     private static String[] allTrash = {
-            "0BlackPlastic.png", "0BubbleWrap.png", "0Candle.png", "0ColdCup.png", "0DrinkPouch.png", "0Mug.png", "0PopsicleStick.png", "0QTip.png",
-            "1Book.png", "1Bottle.png", "1FoodContainer.png", "1GlassBottle.png", "1Tray.png", "1ZipLock.png",
-            "2Banana.png", "2Corn.png", "2EggShell.png", "2Plant.png", "2TeaBag.png", "2UsedTissue.png"
+            "images/0BlackPlastic.png", "images/0BubbleWrap.png", "images/0Candle.png", "images/0ColdCup.png", "images/0DrinkPouch.png", "images/0Mug.png", "images/0PopsicleStick.png", "images/0QTip.png",
+            "images/1Book.png", "images/1Bottle.png", "images/1FoodContainer.png", "images/1GlassBottle.png", "images/1Tray.png", "images/1ZipLock.png",
+            "images/2Banana.png", "images/2Corn.png", "images/2EggShell.png", "images/2Plant.png", "images/2TeaBag.png", "images/2UsedTissue.png"
     };
 
     // instance fields
@@ -32,20 +32,23 @@ public class TrashCan extends JPanel{
     private int stop;
     private JPanel displayholder;
     private JButton display;
-
+    Common comm;
     /**public static void main (String[] arguments) {
      TrashCan trashcan = new TrashCan();
      trashcan.getRandomNumber();
      } **/
 
-    public TrashCan() {
+    public TrashCan(Common comm) {
+        
         super(new FlowLayout());
+        this.comm = comm;
         displayholder = new JPanel();
         this.add(displayholder);
         display = new JButton("", new ImageIcon("images/0BlackPlastic.png"));
         display.setMaximumSize(new Dimension(400, 400));
         displayholder.add(display);
-
+        displayholder.validate();
+    
         random = new Random();
         randomNumber = 0;
         trash =  new Trash(0, "images/0BlackPlastic.png");
@@ -63,9 +66,15 @@ public class TrashCan extends JPanel{
     public void startLevel(int score) {
         System.out.println("Level Starting!");
         setRandomNumber();
+        displayholder.remove(display);
         display = new JButton("", new ImageIcon(allTrash[randomNumber]));
+        makeTrash();
         display.setMaximumSize(new Dimension(400, 400));
         displayholder.add(display);
+        displayholder.revalidate();
+        displayholder.repaint();
+        this.revalidate();
+        this.repaint();
         setTime(score);
         startTimer();
     }
@@ -95,12 +104,25 @@ public class TrashCan extends JPanel{
         timerTask = new TimerTask() {
             public void run() {
                 System.out.println ("Game Over Again! For Realz!");
+                /*
                 JOptionPane.showMessageDialog(new JFrame(),
                         "It's trash can  not trash cannot.", "Game Over", JOptionPane.ERROR_MESSAGE);
+                */
+
+                String[] options = {"OK"}; 
+                int x = JOptionPane.showOptionDialog(null, "It's trash can  not trash cannot.",
+                        "Game Over",
+                        JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+                if(x == 0)
+                {
+                    comm.closeGameFrame();
+                }                
+
 
             }
         };
         timer.schedule(timerTask, stop);
+        //timer.schedule(timerTask, 1000);
     }
 
     public void endTimer(){
