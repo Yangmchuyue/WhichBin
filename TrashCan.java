@@ -24,7 +24,7 @@ public class TrashCan extends JPanel{
     };
 
     // instance fields
-    // private Trash trash; // stores a Trash
+    private Trash trash; // stores a Trash
     private Timer timer;
     private TimerTask timerTask;
     private Random random;
@@ -45,6 +45,7 @@ public class TrashCan extends JPanel{
         display = new JButton("", new ImageIcon("images/0BlackPlastic.png"));
         display.setMaximumSize(new Dimension(400, 400));
         displayholder.add(display);
+
         random = new Random();
         randomNumber = 0;
         timer = new Timer();
@@ -53,19 +54,26 @@ public class TrashCan extends JPanel{
             public void run() {
                 System.out.println ("Game Over!");} // REPLACE THIS WITH JOPTION PANEL
         };
+        startLevel(0);
     }
-    // trash =  newTrash(1, "image name"); // REPLACE THIS
+    trash =  newTrash(1, "image name"); // REPLACE THIS
 
     // start
-    public void startLevel() {
+    public void startLevel(int score) {
+        System.out.println("Level Starting!");
         setRandomNumber();
-        // [display image here]
-        setTime();
+        display = new JButton("", new ImageIcon(allTrash[randomNumber]));
+        display.setMaximumSize(new Dimension(400, 400));
+        displayholder.add(display);
+        setTime(score);
         startTimer();
     }
 
-
     // end -> called by Gracie
+    public void endLevel(){
+        endTimer();
+        System.out.println("Guess Submitted. Timer Ends.");
+    }
 
     // Random Number
     public int getRandomNumber(){
@@ -86,39 +94,31 @@ public class TrashCan extends JPanel{
     }
 
     // Milliseconds
-    // sets the time the player has (and the overall time)
-    public void setTime() {
-        // int score = Scoreboard.getScore();
-        int score = 500;
-        if (score < MAX1 ) {
-            System.out.println ("less than max1");
+    public void setTime(int score) {
+        if (score <= MAX1 ) {
             stop = LEVEL1;
         }
-        else if (score < MAX2) {
-            System.out.println ("less than max2");
+        else if (score <= MAX2) {
             stop = LEVEL2;
         }
-        else if (score < MAX3) {
-            System.out.println ("less than max3");
+        else if (score <= MAX3) {
             stop = LEVEL3;
         }
-        else if (score < MAX4) {
-            System.out.println ("less than max4");
+        else if (score <= MAX4) {
             stop = LEVEL4;
         }
         else {
-            System.out.println ("less than max5");
             stop = LEVEL5;
         }
     }
 
-    //public Trash getTrash(){
-    //  return trash;
-    //}
+    public Trash getTrash(){
+      return trash;
+    }
 
-    //public void makeTrash(){
-    // make a new trash
-    //}
+    public void makeTrash(){
+        trash = new Trash(randomNumber, allTrash[randomNumber]);
+    }
 }
 
 
