@@ -4,9 +4,11 @@ import javax.swing.*;
 import java.awt.event.*;
 public class GameFrame extends JFrame{
     
+	/*
     public static void main(String[] args){
         JFrame frame = new GameFrame();
     }
+	*/
     //Instance Fields
     private Scoreboard scoreboard;
     private TrashCan trashPrompt;
@@ -18,8 +20,9 @@ public class GameFrame extends JFrame{
     private JButton compost;
     
     //Constructor
-    public GameFrame(){
-        super();
+    public GameFrame(Common comm){
+		
+        //super();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500, 500);
         this.setLocationRelativeTo(null); //center frame on screen
@@ -34,8 +37,9 @@ public class GameFrame extends JFrame{
         button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                closeFrame();
+                //closeFrame();
                 //Go back to mainFrame
+				comm.showMainFrame();
             }
         });
         menuPanel.add(button);

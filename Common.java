@@ -21,7 +21,7 @@ public class Common
 	public void initialize() throws IOException
 	{
 		mainFrame = new MainFrame(this);	
-		gameFrame = new GameFrame();
+		gameFrame = new GameFrame(this);
 	}
 
 	private void hideAllFrames()
