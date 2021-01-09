@@ -23,7 +23,7 @@ public class GameFrame extends JFrame{
 
         gamePanel = new JPanel(new BorderLayout());
         scoreboard = new Scoreboard();
-        trashPrompt = new TrashCan();
+        trashPrompt = new TrashCan(comm);
 
 
         menuPanel = new JPanel(new FlowLayout());

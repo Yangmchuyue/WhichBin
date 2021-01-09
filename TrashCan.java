@@ -32,14 +32,16 @@ public class TrashCan extends JPanel{
     private int stop;
     private JPanel displayholder;
     private JButton display;
-
+    Common comm;
     /**public static void main (String[] arguments) {
      TrashCan trashcan = new TrashCan();
      trashcan.getRandomNumber();
      } **/
 
-    public TrashCan() {
+    public TrashCan(Common comm) {
+        
         super(new FlowLayout());
+        this.comm = comm;
         displayholder = new JPanel();
         this.add(displayholder);
         display = new JButton("", new ImageIcon("images/0BlackPlastic.png"));
@@ -95,12 +97,25 @@ public class TrashCan extends JPanel{
         timerTask = new TimerTask() {
             public void run() {
                 System.out.println ("Game Over Again! For Realz!");
+                /*
                 JOptionPane.showMessageDialog(new JFrame(),
                         "It's trash can  not trash cannot.", "Game Over", JOptionPane.ERROR_MESSAGE);
+                */
+
+                String[] options = {"OK"}; 
+                int x = JOptionPane.showOptionDialog(null, "It's trash can  not trash cannot.",
+                        "Game Over",
+                        JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+                if(x == 0)
+                {
+                    comm.closeGameFrame();
+                }                
+
 
             }
         };
         timer.schedule(timerTask, stop);
+        //timer.schedule(timerTask, 1000);
     }
 
     public void endTimer(){

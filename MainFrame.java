@@ -18,6 +18,7 @@ public class MainFrame  extends JFrame implements ActionListener
 	private JButton scoreButton;
 	private JButton exitButton; 
 	Common comm;
+	GameFrame gameFrame;
 	
 	public MainFrame(Common comm) 
 	{
@@ -128,7 +129,7 @@ public class MainFrame  extends JFrame implements ActionListener
 	{
 		if(e.getSource() == playButton)
 		{
-			GameFrame gameFrame = new GameFrame(comm);
+			comm.setGameFrame(new GameFrame(comm));
 			setVisible(false);
 			//comm.showGameFrame();
 		}
