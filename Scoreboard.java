@@ -35,7 +35,7 @@ public class Scoreboard extends JPanel{
         this.add(scoreLabel);
         
         timeLabel = new JLabel("Time: " + getTimeElapsed());
-        timeLabel.setFont(new Font("Open Sancs", Font.BOLD, 18));
+        timeLabel.setFont(new Font("Open Sans", Font.BOLD, 18));
         border = BorderFactory.createLineBorder(new Color(40,108,6));
         timeLabel.setForeground(new Color(40,108,6));
         timeLabel.setBorder(border);
