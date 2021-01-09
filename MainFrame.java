@@ -14,7 +14,10 @@ import javax.swing.event.MenuListener;
 
 public class MainFrame  extends JFrame implements ActionListener
 {
-
+	private JButton playButton; 
+	private JButton scoreButton;
+	private JButton exitButton; 
+	
 	public MainFrame() 
 	{
 		// Colours
@@ -22,16 +25,25 @@ public class MainFrame  extends JFrame implements ActionListener
 		Color mbC = Common.color_pink;
 		Color sC= Common.color_yell;
 		
+		// MainFrame Settings
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(500, 500); 
-		setLocationRelativeTo(null); //center frame on screen
+		setResizable(false);
+		setLocationRelativeTo(null); //center frame on screen	
 		
-		JButton playButton  = new JButton("", new ImageIcon("button_play.png"));	
-		JButton scoreButton  = new JButton("", new ImageIcon("button_score.png"));
-		JButton exitButton = new JButton("", new ImageIcon("button_exit.png"));		
-		
-		Font f1 = new Font("TimesRoman",Font.BOLD,45);
-		Font f2 = new Font("TimesRoman",Font.BOLD,25);
+		// Buttons
+		playButton  = new JButton("", new ImageIcon("button_play.png"));	
+		scoreButton  = new JButton("", new ImageIcon("button_score.png"));
+		exitButton = new JButton("", new ImageIcon("button_exit.png"));		
+
+		//Button Settings
+		playButton.setContentAreaFilled(false);
+		scoreButton.setContentAreaFilled(false);
+		exitButton.setContentAreaFilled(false);
+
+		//Fonts
+		Font f1 = new Font("Gill Sans",Font.BOLD,45);
+		Font f2 = new Font("Gill Sans",Font.BOLD,25);
 		
 		// Menubar
 		JMenuBar mb = new JMenuBar();
@@ -40,7 +52,8 @@ public class MainFrame  extends JFrame implements ActionListener
         mb.add(about);
 		
         // Panel for labels
-		JPanel mainPanel = new JPanel();	
+		//JPanel mainPanel = new JPanel();	
+		ImagePanel mainPanel = new ImagePanel(new ImageIcon("a_bg.png").getImage());
 		mainPanel.setLayout(new GridLayout(4,1));
 		mainPanel.setBackground(bgC);
 		
@@ -80,13 +93,11 @@ public class MainFrame  extends JFrame implements ActionListener
 		
 		// add components to mainFrame using borderlayout
         BorderLayout borderLayout = new BorderLayout(500, 500);	
-        
 		add(borderLayout.NORTH, mb);
 		add(borderLayout.CENTER, mainPanel);
 		add(borderLayout.SOUTH, buttonPanel);
 		
-        setVisible(true);		
-		
+        setVisible(true); // Make MainFrame visible
 		
 		// JMenu Listener
 		about.addMenuListener(new MenuListener() 
@@ -132,6 +143,32 @@ public class MainFrame  extends JFrame implements ActionListener
 	{
 		MainFrame mf = new MainFrame();
 	}
-	
+}
 
+class ImagePanel extends JPanel 
+{
+    private Image image;
+
+    public ImagePanel(String image) 
+	{
+        this(new ImageIcon(image).getImage());
+    }
+
+    public ImagePanel(Image image) 
+	{
+        this.image = image;
+        Dimension size = new Dimension(image.getWidth(null), image.getHeight(null));
+        setPreferredSize(size);
+
+        setMinimumSize(size);
+        setMaximumSize(size);
+
+        setSize(size);
+        setLayout(null);
+    }
+
+    public void paintComponent(Graphics g) 
+	{
+        g.drawImage(image, 0, 0, null);
+    }
 }
