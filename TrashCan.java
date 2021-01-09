@@ -15,10 +15,12 @@ public class TrashCan extends JPanel{
     private static int MAX1 = 400;
     private static int MAX2 = 800;
     private static int MAX3 = 1200;
-    private static int MAX4 = 16000;
+    private static int MAX4 = 1600;
 
     private static String[] allTrash = {
-        "0BlackPlastic.png" // cindy finish this
+        "0BlackPlastic.png", "0BubbleWrap.png", "0Candle.png", "0ColdCup.png", "0DrinkPouch.png", "0Mug.png", "0PopsicleStick.png", "0QTip.png",
+        "1Book.png", "1Bottle.png", "1FoodContainer.png", "1GlassBottle.png", "1Tray.png", "1ZipLock.png",
+        "2Banana.png", "2Corn.png", "2EggShell.png", "2Plant.png", "2TeaBag.png", "2UsedTissue.png"
     };
 
     // instance fields
@@ -67,7 +69,7 @@ public class TrashCan extends JPanel{
     }
 
     public void setRandomNumber() {
-        randomNumber = random.nextInt(49);
+        randomNumber = random.nextInt(19);
     }
 
     // Timer
