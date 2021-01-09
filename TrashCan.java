@@ -57,7 +57,7 @@ public class TrashCan extends JPanel{
         //};
         startLevel(0);
     }
-    
+
 
     // start
     public void startLevel(int score) {
@@ -90,7 +90,11 @@ public class TrashCan extends JPanel{
         timer = new Timer();
         timerTask = new TimerTask() {
             public void run() {
-                System.out.println ("Game Over Again! For Realz!");} // REPLACE THIS WITH JOPTION PANEL
+                System.out.println ("Game Over Again! For Realz!");
+                JOptionPane.showMessageDialog(new JFrame(),
+                        "It's trash can  not trash cannot.", "Game Over", JOptionPane.ERROR_MESSAGE);
+
+            }
         };
         timer.schedule(timerTask, stop);
     }
@@ -119,16 +123,17 @@ public class TrashCan extends JPanel{
     }
 
     public Trash getTrash(){
-      return trash;
+        return trash;
     }
 
     public void makeTrash(){
         trash = new Trash(randomNumber, allTrash[randomNumber]);
     }
+
+    public int getNumber(){
+        String name = trash.getImageName();
+        char first = name.charAt(0);
+        return Character.getNumericValue(first);
+
+    }
 }
-
-
-// Designerspics.com
-// Iso Republic
-// Free Nature Stock
-// freestocks.org
