@@ -2,57 +2,74 @@ import java.awt.*;
 import java.util.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.event.KeyEvent;
+
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
+
 
 public class MainFrame  extends JFrame implements ActionListener
 {
-	private JButton playButton;
-	private JButton scoreButton;
-	private JButton exitButton;
 
 	public MainFrame() 
 	{
+		// Colours
+		Color bgC = Common.color_green;
+		Color mbC = Common.color_pink;
+		Color sC= Common.color_yell;
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(500, 500);	
+		setSize(500, 500); 
 		setLocationRelativeTo(null); //center frame on screen
 		
-		playButton  = new JButton("", new ImageIcon("button_play.png"));	
-		scoreButton  = new JButton("", new ImageIcon("button_score.png"));
-		exitButton = new JButton("", new ImageIcon("button_exit.png"));		
+		JButton playButton  = new JButton("", new ImageIcon("button_play.png"));	
+		JButton scoreButton  = new JButton("", new ImageIcon("button_score.png"));
+		JButton exitButton = new JButton("", new ImageIcon("button_exit.png"));		
 		
 		Font f1 = new Font("TimesRoman",Font.BOLD,45);
 		Font f2 = new Font("TimesRoman",Font.BOLD,25);
 		
-		// make menu bar in mainFrame
+		// Menubar
 		JMenuBar mb = new JMenuBar();
 		mb.setBackground(Common.color_d_brown);
         JMenu about = new JMenu("About");
         mb.add(about);
 		
-        // make mainPanel in mainFrame with title
+        // Panel for labels
 		JPanel mainPanel = new JPanel();	
-		mainPanel.setLayout(new FlowLayout());
-		mainPanel.setBackground(Common.color_brown);
+		mainPanel.setLayout(new GridLayout(4,1));
+		mainPanel.setBackground(bgC);
 		
+		// Empty Label
+		JLabel filler = new JLabel("");				
+		filler.setVerticalAlignment(JLabel.CENTER);
+		filler.setHorizontalAlignment(JLabel.CENTER);
+		mainPanel.add(filler);
 		
+		// Title Label
 		JLabel title = new JLabel("Which Bin?");				
 		title.setFont(f1);
-		title.setForeground(Common.color_red);
+		title.setForeground(mbC);
 		title.setVerticalAlignment(JLabel.CENTER);
 		title.setHorizontalAlignment(JLabel.CENTER);
 		mainPanel.add(title);
 		
-		JLabel label = new JLabel("Reduce, Reuse, Recycle");	
-		label.setFont(f2);
-		label.setForeground(Common.color_blue);
-		label.setVerticalAlignment(JLabel.CENTER);
-		label.setHorizontalAlignment(JLabel.CENTER);
-		mainPanel.add(label);		
+		// Subtitle Label
+		JLabel subTitle = new JLabel("Reduce, Reuse, Recycle");	
+		subTitle.setFont(f2);
+		subTitle.setForeground(sC);
+		subTitle.setVerticalAlignment(JLabel.CENTER);
+		subTitle.setHorizontalAlignment(JLabel.CENTER);
+		mainPanel.add(subTitle);		
 		
 
-        
+        // Button Panel
         JPanel buttonPanel = new JPanel();
-        
-		buttonPanel.setBackground(Common.color_brown);
+		buttonPanel.setBackground(bgC);
 		buttonPanel.add(playButton); 
 		playButton.addActionListener(this); 
 		buttonPanel.add(scoreButton); 
@@ -64,23 +81,57 @@ public class MainFrame  extends JFrame implements ActionListener
 		// add components to mainFrame using borderlayout
         BorderLayout borderLayout = new BorderLayout(500, 500);	
         
-		getContentPane().add(borderLayout.NORTH, mb);
-		getContentPane().add(borderLayout.CENTER, mainPanel);
-		getContentPane().add(borderLayout.SOUTH, buttonPanel);
+		add(borderLayout.NORTH, mb);
+		add(borderLayout.CENTER, mainPanel);
+		add(borderLayout.SOUTH, buttonPanel);
 		
-
-			
         setVisible(true);		
+		
+		
+		// JMenu Listener
+		about.addMenuListener(new MenuListener() 
+		{
+
+			public void menuSelected(MenuEvent e) 
+			{
+				//System.out.println("menuSelected");
+				JFrame f = new JFrame();
+				JOptionPane.showMessageDialog(f, "Welcome to WhichBin? Version 1.0!");
+			}
+
+			public void menuDeselected(MenuEvent e) 
+			{
+				//System.out.println("menuDeselected");
+			}
+
+			public void menuCanceled(MenuEvent e) 
+			{
+				//System.out.println("menuCanceled");
+			}
+		});
+
         
 
-		if(e.getSource() == buttonUserFrame)
+	}		
+	public void actionPerformed(ActionEvent e) 
+	{
+		if(e.getSource() == playButton)
 		{
-			//comm.showUserListFrame();
+			//comm.showGameFrame();
 		}
+		if(e.getSource() == scoreButton)
+		{
+			//comm.showScorePanel();
+		}		
+		if(e.getSource() == exitButton)
+		{
+			System.exit(0);
+		}		
 	}
 	public static void main(String[] args)
 	{
-		Common common = new Common();
-		MainFrame mf = new MainFrame(common);
+		MainFrame mf = new MainFrame();
 	}
+	
+
 }
