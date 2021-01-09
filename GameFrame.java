@@ -46,8 +46,16 @@ public class GameFrame extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Check to see if correct
-                trashPrompt.endLevel(); // this is going to give an output, check the string with the input etc. i will work on this.
-                trashPrompt.startLevel(scoreboard.getScore()); // starts the next level
+                int guess = trashPrompt.endLevel(); // this is going to give an output, check the string with the input etc. i will work on this.
+                System.out.println("Guess: " + 0);
+                if(guess == 0){
+                    scoreboard.addToScore(100);
+                    trashPrompt.startLevel(scoreboard.getScore()); // starts the next level
+                }
+                else {
+                    JOptionPane.showMessageDialog(new JFrame(),
+                        "Incorrect Guess.", "Game Over", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         guessPanel.add(garbage);
@@ -57,8 +65,16 @@ public class GameFrame extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Check to see if correct
-                trashPrompt.endLevel(); // this is going to give an output
-                trashPrompt.startLevel(scoreboard.getScore()); // starts the next level
+                int guess = trashPrompt.endLevel(); // this is going to give an output
+                System.out.println("Guess: " + 1);
+                if(guess == 1){
+                    scoreboard.addToScore(100);
+                    trashPrompt.startLevel(scoreboard.getScore()); // starts the next level
+                }
+                else {
+                    JOptionPane.showMessageDialog(new JFrame(),
+                        "Incorrect Guess.", "Game Over", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         guessPanel.add(recycling);
@@ -68,8 +84,16 @@ public class GameFrame extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Check to see if correct
-                trashPrompt.endLevel(); // this is going to give an output
-                trashPrompt.startLevel(scoreboard.getScore()); // starts the next level
+                int guess = trashPrompt.endLevel(); // this is going to give an output
+                System.out.println("Guess: " + 2);
+                if(guess == 2){
+                    scoreboard.addToScore(100);
+                    trashPrompt.startLevel(scoreboard.getScore()); // starts the next level
+                }
+                else {
+                    JOptionPane.showMessageDialog(new JFrame(),
+                        "Incorrect Guess.", "Game Over", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         guessPanel.add(compost);
