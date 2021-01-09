@@ -12,6 +12,10 @@ public class Common
 	public static final Color color_red = new Color(172, 59, 97);
 	public static final Color color_d_brown = new Color(237, 199, 183);
 	public static final Color color_blue = new Color(18, 60, 105);
+	
+	public static final Color color_green = new Color(76, 149, 108);
+	public static final Color color_pink = new Color(255, 201, 185);
+	public static final Color color_yell = new Color(254, 254, 227);
 		
 	
 	public void initialize() throws IOException
@@ -19,6 +23,8 @@ public class Common
 		// initialize special colours
 		mainFrame = new MainFrame();
 		//setSize(mainFrame);
+		
+		
 	}
 
 	private void hideAllFrames()

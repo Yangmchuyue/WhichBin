@@ -11,6 +11,10 @@ public class MainFrame  extends JFrame implements ActionListener
 
 	public MainFrame() 
 	{
+		Color bgC = Common.color_green;
+		Color mbC = Common.color_pink;
+		Color sC= Common.color_yell;
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(500, 500);	
 		setLocationRelativeTo(null); //center frame on screen
@@ -30,29 +34,33 @@ public class MainFrame  extends JFrame implements ActionListener
 		
         // make mainPanel in mainFrame with title
 		JPanel mainPanel = new JPanel();	
-		mainPanel.setLayout(new FlowLayout());
-		mainPanel.setBackground(Common.color_brown);
+		mainPanel.setLayout(new GridLayout(4,1));
+		mainPanel.setBackground(bgC);
 		
+		JLabel filler = new JLabel("");				
+		filler.setVerticalAlignment(JLabel.CENTER);
+		filler.setHorizontalAlignment(JLabel.CENTER);
+		mainPanel.add(filler);
 		
 		JLabel title = new JLabel("Which Bin?");				
 		title.setFont(f1);
-		title.setForeground(Common.color_red);
+		title.setForeground(mbC);
 		title.setVerticalAlignment(JLabel.CENTER);
 		title.setHorizontalAlignment(JLabel.CENTER);
 		mainPanel.add(title);
 		
-		JLabel label = new JLabel("Reduce, Reuse, Recycle");	
-		label.setFont(f2);
-		label.setForeground(Common.color_blue);
-		label.setVerticalAlignment(JLabel.CENTER);
-		label.setHorizontalAlignment(JLabel.CENTER);
-		mainPanel.add(label);		
+		JLabel subTitle = new JLabel("Reduce, Reuse, Recycle");	
+		subTitle.setFont(f2);
+		subTitle.setForeground(sC);
+		subTitle.setVerticalAlignment(JLabel.CENTER);
+		subTitle.setHorizontalAlignment(JLabel.CENTER);
+		mainPanel.add(subTitle);		
 		
 
         
         JPanel buttonPanel = new JPanel();
         
-		buttonPanel.setBackground(Common.color_brown);
+		buttonPanel.setBackground(bgC);
 		buttonPanel.add(playButton); 
 		playButton.addActionListener(this); 
 		buttonPanel.add(scoreButton); 
@@ -73,14 +81,24 @@ public class MainFrame  extends JFrame implements ActionListener
         setVisible(true);		
         
 
-		if(e.getSource() == buttonUserFrame)
-		{
-			//comm.showUserListFrame();
-		}
-	}
-	public static void main(String[] args)
+	}		
+	public void actionPerformed(ActionEvent e) 
 	{
-		Common common = new Common();
-		MainFrame mf = new MainFrame(common);
+		if(e.getSource() == playButton)
+		{
+			//comm.showGameFrame();
+		}
+		if(e.getSource() == scoreButton)
+		{
+			//comm.showScorePanel();
+		}		
+		if(e.getSource() == exitButton)
+		{
+			System.exit(0);
+		}		
+	}
+		public static void main(String[] args)
+	{
+		MainFrame mf = new MainFrame();
 	}
 }
