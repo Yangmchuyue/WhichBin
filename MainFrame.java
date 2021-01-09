@@ -17,9 +17,11 @@ public class MainFrame  extends JFrame implements ActionListener
 	private JButton playButton; 
 	private JButton scoreButton;
 	private JButton exitButton; 
+	Common comm;
 	
-	public MainFrame() 
+	public MainFrame(Common comm) 
 	{
+		this.comm = comm;
 		// Colours
 		Color bgC = Common.color_green;
 		Color mbC = Common.color_pink;
@@ -107,7 +109,7 @@ public class MainFrame  extends JFrame implements ActionListener
 			{
 				//System.out.println("menuSelected");
 				JFrame f = new JFrame();
-				JOptionPane.showMessageDialog(f, "Welcome to WhichBin? Version 1.0!");
+				JOptionPane.showMessageDialog(f, "Welcome to WhichBin? Version 1.0");
 			}
 
 			public void menuDeselected(MenuEvent e) 
@@ -128,7 +130,7 @@ public class MainFrame  extends JFrame implements ActionListener
 	{
 		if(e.getSource() == playButton)
 		{
-			//comm.showGameFrame();
+			comm.showGameFrame();
 		}
 		if(e.getSource() == scoreButton)
 		{
@@ -138,10 +140,6 @@ public class MainFrame  extends JFrame implements ActionListener
 		{
 			System.exit(0);
 		}		
-	}
-	public static void main(String[] args)
-	{
-		MainFrame mf = new MainFrame();
 	}
 }
 
