@@ -1,8 +1,5 @@
 import java.awt.Color;
 import java.io.IOException;
-
-//import javax.swing.JFrame;
-
 public class Common 
 {
 	private MainFrame mainFrame;
@@ -44,5 +41,7 @@ public class Common
 		gameFrame.closeFrame(); // Closes this GameFrame
 		showMainFrame();
 	}
+} 
+	// end of class Common}
 	
 }
