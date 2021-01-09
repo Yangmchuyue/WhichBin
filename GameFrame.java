@@ -45,8 +45,7 @@ public class GameFrame extends JFrame{
         garbage.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Check to see if correct
-                int guess = trashPrompt.endLevel(); // this is going to give an output, check the string with the input etc. i will work on this.
+                int guess = trashPrompt.endLevel(); 
                 System.out.println("Guess: " + 0);
                 if(guess == 0){
                     scoreboard.addToScore(100);
@@ -54,7 +53,8 @@ public class GameFrame extends JFrame{
                 }
                 else {
                     JOptionPane.showMessageDialog(new JFrame(),
-                        "Incorrect Guess.", "Game Over", JOptionPane.ERROR_MESSAGE);
+                        "Game Over! That does not belong in the garbage bin. Better luck next time!", "GAME OVER!", JOptionPane.ERROR_MESSAGE);
+                        closeFrame();
                 }
             }
         });
@@ -64,16 +64,16 @@ public class GameFrame extends JFrame{
         recycling.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Check to see if correct
-                int guess = trashPrompt.endLevel(); // this is going to give an output
+                int guess = trashPrompt.endLevel();
                 System.out.println("Guess: " + 1);
                 if(guess == 1){
                     scoreboard.addToScore(100);
-                    trashPrompt.startLevel(scoreboard.getScore()); // starts the next level
+                    trashPrompt.startLevel(scoreboard.getScore()); 
                 }
                 else {
                     JOptionPane.showMessageDialog(new JFrame(),
-                        "Incorrect Guess.", "Game Over", JOptionPane.ERROR_MESSAGE);
+                        "Game Over! That does not belong in the recycling bin. Better luck next time!", "GAME OVER!", JOptionPane.ERROR_MESSAGE);
+                    closeFrame();
                 }
             }
         });
@@ -83,16 +83,16 @@ public class GameFrame extends JFrame{
         compost.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Check to see if correct
-                int guess = trashPrompt.endLevel(); // this is going to give an output
+                int guess = trashPrompt.endLevel();
                 System.out.println("Guess: " + 2);
                 if(guess == 2){
                     scoreboard.addToScore(100);
-                    trashPrompt.startLevel(scoreboard.getScore()); // starts the next level
+                    trashPrompt.startLevel(scoreboard.getScore());
                 }
                 else {
                     JOptionPane.showMessageDialog(new JFrame(),
-                        "Incorrect Guess.", "Game Over", JOptionPane.ERROR_MESSAGE);
+                        "Game Over! That does not belong in the green bin. Better luck next time!", "GAME OVER!", JOptionPane.ERROR_MESSAGE);
+                    closeFrame();
                 }
             }
         });
@@ -116,7 +116,6 @@ public class GameFrame extends JFrame{
         return trashPrompt;
     }
     
-
     //Mutators
     public void closeFrame(){
         super.dispose();
