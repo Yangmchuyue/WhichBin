@@ -24,27 +24,3 @@ public class Run
 	}
 }
 
-/*
- * 
- *
-Done: 
-•	at least 2 frames( or one frame and 2 panels that will replace each other)
-•	a way to go from one frame to another
-•	at least 2 classes
-•	evidences of inheritance
-•	evidences of encapsulation
-•	at least one overloaded constructor (class User)
-•	at least one static variable ( not counting global variables in a main class) (Common.java colors)
-•	evidences of polymorphism (search)
-•	at least one static methods ( not counting main) (algorithm.java)
-•	an exit button
-
-Proceeding:
-•	read and write from/to file functionality
-
-To do:
-
-
-
-
-*/

@@ -30,7 +30,7 @@ public class MainFrame  extends JFrame implements ActionListener
 		
         // make mainPanel in mainFrame with title
 		JPanel mainPanel = new JPanel();	
-		mainPanel.setLayout(new VerticalFlowLayout());
+		mainPanel.setLayout(new FlowLayout());
 		mainPanel.setBackground(Common.color_brown);
 		
 		
