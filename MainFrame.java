@@ -1,13 +1,13 @@
 import java.awt.*;
-//import java.util.*;
+import java.util.*;
 import javax.swing.*;
 import java.awt.event.*;
-//import java.awt.event.KeyEvent;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-//import javax.swing.JMenuItem;
+import javax.swing.JMenuItem;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
@@ -128,7 +128,9 @@ public class MainFrame  extends JFrame implements ActionListener
 	{
 		if(e.getSource() == playButton)
 		{
-			comm.showGameFrame();
+			GameFrame gameFrame = new GameFrame(comm);
+			setVisible(false);
+			//comm.showGameFrame();
 		}
 		if(e.getSource() == scoreButton)
 		{

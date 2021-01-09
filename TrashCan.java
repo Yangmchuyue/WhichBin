@@ -48,15 +48,16 @@ public class TrashCan extends JPanel{
 
         random = new Random();
         randomNumber = 0;
-        timer = new Timer();
+        trash =  new Trash(0, "images/0BlackPlastic.png");
+        // timer = new Timer();
         stop = LEVEL1;
-        timerTask = new TimerTask() {
-            public void run() {
-                System.out.println ("Game Over!");} // REPLACE THIS WITH JOPTION PANEL
-        };
+        //timerTask = new TimerTask() {
+        //    public void run() {
+        //        System.out.println ("Game Over!");} // REPLACE THIS WITH JOPTION PANEL
+        //};
         startLevel(0);
     }
-    trash =  newTrash(1, "image name"); // REPLACE THIS
+    
 
     // start
     public void startLevel(int score) {
@@ -86,6 +87,11 @@ public class TrashCan extends JPanel{
 
     // Timer
     public void startTimer(){
+        timer = new Timer();
+        timerTask = new TimerTask() {
+            public void run() {
+                System.out.println ("Game Over Again! For Realz!");} // REPLACE THIS WITH JOPTION PANEL
+        };
         timer.schedule(timerTask, stop);
     }
 

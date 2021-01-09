@@ -8,7 +8,7 @@ public class Trash{
     private String imageName;
 
     // Constructor
-    public Trash(int imageNumber, String imageName){
+    public Trash (int imageNumber, String imageName){
         this.imageNumber = imageNumber;
         this.imageName = imageName;
     }
@@ -27,9 +27,42 @@ public class Trash{
         this.imageNumber = imageNumber;
     }   
 
-    public void setImageName(int imageName){
+    public void setImageName(String imageName){
         this.imageName = imageName;
     }   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
