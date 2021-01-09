@@ -18,9 +18,9 @@ public class TrashCan extends JPanel{
     private static int MAX4 = 1600;
 
     private static String[] allTrash = {
-        "0BlackPlastic.png", "0BubbleWrap.png", "0Candle.png", "0ColdCup.png", "0DrinkPouch.png", "0Mug.png", "0PopsicleStick.png", "0QTip.png",
-        "1Book.png", "1Bottle.png", "1FoodContainer.png", "1GlassBottle.png", "1Tray.png", "1ZipLock.png",
-        "2Banana.png", "2Corn.png", "2EggShell.png", "2Plant.png", "2TeaBag.png", "2UsedTissue.png"
+            "0BlackPlastic.png", "0BubbleWrap.png", "0Candle.png", "0ColdCup.png", "0DrinkPouch.png", "0Mug.png", "0PopsicleStick.png", "0QTip.png",
+            "1Book.png", "1Bottle.png", "1FoodContainer.png", "1GlassBottle.png", "1Tray.png", "1ZipLock.png",
+            "2Banana.png", "2Corn.png", "2EggShell.png", "2Plant.png", "2TeaBag.png", "2UsedTissue.png"
     };
 
     // instance fields
@@ -30,17 +30,21 @@ public class TrashCan extends JPanel{
     private Random random;
     private int randomNumber;
     private int stop;
+    private JPanel displayholder;
     private JButton display;
 
     /**public static void main (String[] arguments) {
-        TrashCan trashcan = new TrashCan();
-        trashcan.getRandomNumber();
-    } **/
+     TrashCan trashcan = new TrashCan();
+     trashcan.getRandomNumber();
+     } **/
 
     public TrashCan() {
         super(new FlowLayout());
-        display = new JButton("", new ImageIcon("button_play.png"));
-        this.add(display);
+        displayholder = new JPanel();
+        this.add(displayholder);
+        display = new JButton("", new ImageIcon("images/0BlackPlastic.png"));
+        display.setMaximumSize(new Dimension(400, 400));
+        displayholder.add(display);
         random = new Random();
         randomNumber = 0;
         timer = new Timer();
@@ -48,9 +52,9 @@ public class TrashCan extends JPanel{
         timerTask = new TimerTask() {
             public void run() {
                 System.out.println ("Game Over!");} // REPLACE THIS WITH JOPTION PANEL
-            };
-        }
-        // trash =  newTrash(1, "image name"); // REPLACE THIS
+        };
+    }
+    // trash =  newTrash(1, "image name"); // REPLACE THIS
 
     // start
     public void startLevel() {
@@ -109,11 +113,11 @@ public class TrashCan extends JPanel{
     }
 
     //public Trash getTrash(){
-      //  return trash;
+    //  return trash;
     //}
 
     //public void makeTrash(){
-        // make a new trash
+    // make a new trash
     //}
 }
 
