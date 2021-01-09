@@ -70,10 +70,14 @@ public class TrashCan extends JPanel{
         startTimer();
     }
 
-    // end -> called by Gracie
-    public void endLevel(){
+    // end
+    public int endLevel(){
         endTimer();
-        System.out.println("Guess Submitted. Timer Ends.");
+        System.out.println("Guess Submitted1. Timer Ends.");
+        int gotten = getNumber();
+        System.out.println(gotten);
+        System.out.println("Guess Submitted2. Timer Ends.");
+        return gotten;
     }
 
     // Random Number
@@ -132,8 +136,8 @@ public class TrashCan extends JPanel{
 
     public int getNumber(){
         String name = trash.getImageName();
-        char first = name.charAt(0);
-        return Character.getNumericValue(first);
+        int first = name.charAt(7) - '0';
+        return first;
 
     }
 }
