@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 public class Common 
 {
 	private MainFrame mainFrame;
-	private int size_x, size_y;
+	//private GameFrame gameFrame;
 
 	public static final Color color_brown = new Color(238, 226, 220);
 	public static final Color color_red = new Color(172, 59, 97);
@@ -20,21 +20,25 @@ public class Common
 	
 	public void initialize() throws IOException
 	{
-		// initialize special colours
-		mainFrame = new MainFrame();
-		//setSize(mainFrame);
-		
-		
+		mainFrame = new MainFrame();	
 	}
 
 	private void hideAllFrames()
 	{
 		mainFrame.setVisible(false);	
+		//gameFrame.setVisible(false);
 	}
 	
 	public void showMainFrame()
 	{
-		//hideAllFrames();
+		hideAllFrames();
 		mainFrame.setVisible(true);	
 	}
+	/*
+	public void showGameFrame()
+	{
+		hideAllFrames();
+		gameFrame.setVisible(true);	
+	}	
+	*/
 }
