@@ -2,16 +2,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 public class Scoreboard extends JPanel{
-    /*public static void main(String[] args){
-     JFrame frame = new JFrame();
-     JPanel panel = new Scoreboard();
-     frame.add(panel);
-     frame.validate();
-     frame.pack();
-     frame.setSize(200,300);
-     frame.setVisible(true);
-     }
-*/
+
     //Instance Fields
     private int score;
     private JLabel scoreLabel;
