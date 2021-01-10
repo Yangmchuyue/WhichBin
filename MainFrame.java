@@ -108,7 +108,13 @@ public class MainFrame  extends JFrame implements ActionListener
 			{
 				//System.out.println("menuSelected");
 				JFrame f = new JFrame();
-				JOptionPane.showMessageDialog(f, "Welcome to WhichBin? Version 1.0");
+				JOptionPane.showMessageDialog(f, "Welcome to Garbage Grouper Version 1.0!" + 
+				"\n Built by Cindy G, Grace F, Gracie Z, and Maggie Y." +
+				"\n This game features the audio clip \"Village Dreaming [Loop]\" by Visager, " +
+				"\n available under a Creative Commons Attribution License: "
+				"\n https://creativecommons.org/licenses/by/4.0/" + 
+				"\n Music Source and Visager's Music: " + 
+				"\n https://freemusicarchive.org/search/?quicksearch=visager");
 			}
 
 			public void menuDeselected(MenuEvent e) 
