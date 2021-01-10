@@ -36,17 +36,15 @@ public class MainFrame  extends JFrame implements ActionListener
 		
 		// Buttons
 		playButton  = new JButton("", new ImageIcon("button_play.png"));	
-		//scoreButton  = new JButton("", new ImageIcon("button_score.png"));
 		exitButton = new JButton("", new ImageIcon("button_exit.png"));		
 
 		//Button Settings
 		playButton.setContentAreaFilled(false);
-		//scoreButton.setContentAreaFilled(false);
 		exitButton.setContentAreaFilled(false);
 
 		//Fonts
-		Font f1 = new Font("Gill Sans",Font.BOLD,45);
-		Font f2 = new Font("Gill Sans",Font.BOLD,25);
+		Font f1 = new Font("Gill Sans",Font.BOLD,28);
+		Font f2 = new Font("Gill Sans",Font.BOLD,20);
 		
 		// Menubar
 		JMenuBar mb = new JMenuBar();
@@ -89,9 +87,7 @@ public class MainFrame  extends JFrame implements ActionListener
         JPanel buttonPanel = new JPanel();
 		buttonPanel.setBackground(bgC);
 		buttonPanel.add(playButton); 
-		playButton.addActionListener(this); 
-		//buttonPanel.add(scoreButton); 
-		//scoreButton.addActionListener(this);		
+		playButton.addActionListener(this); 	
 		buttonPanel.add(exitButton); 
 		exitButton.addActionListener(this); 		
         
@@ -134,11 +130,7 @@ public class MainFrame  extends JFrame implements ActionListener
 			comm.setGameFrame(new GameFrame(comm));
 			setVisible(false);
 			//comm.showGameFrame();
-		}
-		//if(e.getSource() == scoreButton)
-		//{
-			//comm.showScorePanel();
-		//}		
+		}	
 		if(e.getSource() == exitButton)
 		{
 			System.exit(0);
