@@ -7,4 +7,6 @@ Players are shown images of common types of waste and must determine if it belon
 But be careful, for the further the player progresses, the less time they have to sort their trash appropriately. 
 If the player takes too long to respond or sorts their trash in the wrong bin, then it's game over.
 
+Start the game by running the Run.java file or the executable Run.jar file in WhichBin.zip.
+
 Thanks for playing!
