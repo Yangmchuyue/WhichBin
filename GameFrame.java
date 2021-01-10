@@ -57,11 +57,12 @@ public class GameFrame extends JFrame{
                 int guess = trashPrompt.endLevel(); 
                 if(guess == 0){
                     scoreboard.addToScore(100);
-                    trashPrompt.startLevel(scoreboard.getScore()); // starts the next level
+                    trashPrompt.startLevel(scoreboard.getScore());
                 }
                 else {
                     JOptionPane.showMessageDialog(new JFrame(),
-                        "Game Over! That does not belong in the garbage bin. Better luck next time!", "GAME OVER!", JOptionPane.ERROR_MESSAGE);
+                        "Game Over! That does not belong in the garbage bin. Better luck next time!", 
+                        "GAME OVER!", JOptionPane.ERROR_MESSAGE);
                         closeFrame();
                         comm.showMainFrame();
                 }
@@ -79,7 +80,8 @@ public class GameFrame extends JFrame{
                 }
                 else {
                     JOptionPane.showMessageDialog(new JFrame(),
-                        "Game Over! That does not belong in the recycling bin. Better luck next time!", "GAME OVER!", JOptionPane.ERROR_MESSAGE);
+                        "Game Over! That does not belong in the recycling bin. Better luck next time!",
+                         "GAME OVER!", JOptionPane.ERROR_MESSAGE);
                     closeFrame();
                     comm.showMainFrame();
                 }
@@ -97,7 +99,8 @@ public class GameFrame extends JFrame{
                 }
                 else {
                     JOptionPane.showMessageDialog(new JFrame(),
-                        "Game Over! That does not belong in the green bin. Better luck next time!", "GAME OVER!", JOptionPane.ERROR_MESSAGE);
+                        "Game Over! That does not belong in the green bin. Better luck next time!",
+                         "GAME OVER!", JOptionPane.ERROR_MESSAGE);
                     closeFrame();
                     comm.showMainFrame();
                 }
@@ -114,7 +117,7 @@ public class GameFrame extends JFrame{
         this.setVisible(true);
     }
 
-    //Accessors
+    //Accessor Methods
     public Scoreboard getScoreboard(){
         return scoreboard;
     }
@@ -123,7 +126,7 @@ public class GameFrame extends JFrame{
         return trashPrompt;
     }
     
-    //Mutators
+    //Mutator Methods
     public void closeFrame(){
         sound.stopSound();
         super.dispose();
