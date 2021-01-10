@@ -9,10 +9,6 @@ public class Sound {
     private String sound;
     private String setting;
 
-    // public static void main(String[] args) {		
-		// new Sound(); // put new sound in GameFrame constructor Sound sound = new Sound(); <-- in gameframe const.
-    //}<-- in gameframe const.
-    
     public Sound(){
         sound = "Visager_-_19_-_Village_Dreaming_Loop.wav";
         se = new SoundEffect(); 
