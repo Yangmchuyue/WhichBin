@@ -104,7 +104,29 @@ public class MainFrame  extends JFrame implements ActionListener
 		
         setVisible(true); // Make MainFrame visible
 		
-		// JMenu Listener
+		// JMenu Listener for howTo
+		howTo.addMenuListener(new MenuListener() 
+		{
+
+			public void menuSelected(MenuEvent e) 
+			{
+				//System.out.println("menuSelected");
+				JFrame f = new JFrame();
+				JOptionPane.showMessageDialog(f, "How To Play");
+			}
+
+			public void menuDeselected(MenuEvent e) 
+			{
+				//System.out.println("menuDeselected");
+			}
+
+			public void menuCanceled(MenuEvent e) 
+			{
+				//System.out.println("menuCanceled");
+			}
+		});
+
+		// JMenu Listener for about
 		about.addMenuListener(new MenuListener() 
 		{
 
@@ -124,7 +146,7 @@ public class MainFrame  extends JFrame implements ActionListener
 			{
 				//System.out.println("menuCanceled");
 			}
-		});
+		});		
 	}		
 	
 	public void actionPerformed(ActionEvent e) 
