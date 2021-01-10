@@ -35,8 +35,8 @@ public class MainFrame  extends JFrame implements ActionListener
 		setLocationRelativeTo(null); //center frame on screen	
 		
 		// Buttons
-		playButton  = new JButton("", new ImageIcon("button_play.png"));	
-		exitButton = new JButton("", new ImageIcon("button_exit.png"));		
+		playButton  = new JButton("", new ImageIcon("images/button_play.png"));	
+		exitButton = new JButton("", new ImageIcon("images/button_exit.png"));		
 
 		//Button Settings
 		playButton.setContentAreaFilled(false);
@@ -49,14 +49,14 @@ public class MainFrame  extends JFrame implements ActionListener
 		// Menubar
 		JMenuBar mb = new JMenuBar();
 		mb.setBackground(Common.color_d_brown);
-        JMenu about = new JMenu("About");
+        JButton about = new JButton("About");
         mb.add(about);
-		JMenu howTo = new JMenu("How To Play");
+		JButton howTo = new JButton("How To Play");
 		mb.add(howTo);
 		
         // Panel for labels
 		//JPanel mainPanel = new JPanel();	
-		ImagePanel mainPanel = new ImagePanel(new ImageIcon("a_bg.png").getImage());
+		ImagePanel mainPanel = new ImagePanel(new ImageIcon("images/a_bg.png").getImage());
 		mainPanel.setLayout(new GridLayout(4,1));
 		mainPanel.setBackground(bgC);
 		
@@ -67,7 +67,7 @@ public class MainFrame  extends JFrame implements ActionListener
 		mainPanel.add(filler);
 		
 		// Title Label
-		JLabel title = new JLabel("Garbage Grouper");				
+		JLabel title = new JLabel("Which Bin");				
 		title.setFont(f1);
 		title.setForeground(mbC);
 		title.setVerticalAlignment(JLabel.CENTER);
@@ -101,54 +101,39 @@ public class MainFrame  extends JFrame implements ActionListener
         setVisible(true); // Make MainFrame visible
 		
 		// JMenu Listener for howTo
-		howTo.addMenuListener(new MenuListener() 
+		howTo.addActionListener(new ActionListener() 
 		{
 
-			public void menuSelected(MenuEvent e) 
-			{
-				//System.out.println("menuSelected");
-				JFrame f = new JFrame();
-				JOptionPane.showMessageDialog(f, "How To Play: \n
-				");
-			}
-
-			public void menuDeselected(MenuEvent e) 
-			{
-				//System.out.println("menuDeselected");
-			}
-
-			public void menuCanceled(MenuEvent e) 
-			{
-				//System.out.println("menuCanceled");
+			@Override
+            public void actionPerformed(ActionEvent e) {
+					JFrame f = new JFrame();
+					JOptionPane.showMessageDialog(f, "How To Play: " + 
+						"\n A piece of trash will show up at the top of the screen." +
+						"\n Your mission is to pick the bin the trash should go into: Garbage, Recycling or Compost." +
+						"\n Hurry and choose the correct one before the time runs out, otherwise it's GAME OVER." +
+						"\n Try to become an eco-Wiz as the time limit becomes shorter and shorter!");
+					howTo.setSelected(false);
 			}
 		});
 
 		// JMenu Listener for about
-		about.addMenuListener(new MenuListener() 
+		about.addActionListener(new ActionListener() 
 		{
 
-			public void menuSelected(MenuEvent e) 
-			{
-				//System.out.println("menuSelected");
-				JFrame f = new JFrame();
-				JOptionPane.showMessageDialog(f, "Welcome to Garbage Grouper Version 1.0!" + 
-				"\n Built by Cindy G, Grace F, Gracie Z, and Maggie Y." +
-				"\n This game features the audio clip \"Village Dreaming [Loop]\" by Visager, " +
-				"\n available under a Creative Commons Attribution License: "
-				"\n https://creativecommons.org/licenses/by/4.0/" + 
-				"\n Music Source and Visager's Music: " + 
-				"\n https://freemusicarchive.org/search/?quicksearch=visager");
+			@Override
+            public void actionPerformed(ActionEvent e) {
+					JFrame f = new JFrame();
+					JOptionPane.showMessageDialog(f, "Welcome to Which Bin? Version 1.0!" + 
+					"\n Built by Cindy G, Grace F, Gracie Z, and Maggie Y." +
+					"\n This game features the audio clip \"Village Dreaming [Loop]\" by Visager, " +
+					"\n available under a Creative Commons Attribution License: " +
+					"\n https://creativecommons.org/licenses/by/4.0/" + 
+					"\n Music Source and Visager's Music: " + 
+					"\n https://freemusicarchive.org/search/?quicksearch=visager");
+					about.setSelected(false);
+				
 			}
 
-			public void menuDeselected(MenuEvent e) 
-			{
-				//System.out.println("menuDeselected");
-			}
-
-			public void menuCanceled(MenuEvent e) 
-			{
-				//System.out.println("menuCanceled");
-			}
 		});		
 	}		
 	
