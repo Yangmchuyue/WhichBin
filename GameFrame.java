@@ -38,7 +38,7 @@ public class GameFrame extends JFrame{
         // Sound sound = new Sound(); 
         menuPanel = new JPanel(new FlowLayout());
         menuPanel.setBackground(new Color(230,242,230));
-        JButton button = new JButton("", new ImageIcon("button_back.png"));
+        JButton button = new JButton("", new ImageIcon("images/button_back.png"));
         button.setContentAreaFilled(false);
         button.addActionListener(new ActionListener(){
             @Override
