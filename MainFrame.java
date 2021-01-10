@@ -11,7 +11,6 @@ import javax.swing.JMenuItem;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
-
 public class MainFrame  extends JFrame implements ActionListener
 {
 	private JButton playButton; 
@@ -54,8 +53,7 @@ public class MainFrame  extends JFrame implements ActionListener
 		JButton howTo = new JButton("How To Play");
 		mb.add(howTo);
 		
-        // Panel for labels
-		//JPanel mainPanel = new JPanel();	
+        // Panel for Labels
 		ImagePanel mainPanel = new ImagePanel(new ImageIcon("images/a_bg.png").getImage());
 		mainPanel.setLayout(new GridLayout(4,1));
 		mainPanel.setBackground(bgC);
@@ -82,7 +80,6 @@ public class MainFrame  extends JFrame implements ActionListener
 		subTitle.setHorizontalAlignment(JLabel.CENTER);
 		mainPanel.add(subTitle);		
 		
-
         // Button Panel
         JPanel buttonPanel = new JPanel();
 		buttonPanel.setBackground(bgC);
@@ -91,14 +88,13 @@ public class MainFrame  extends JFrame implements ActionListener
 		buttonPanel.add(exitButton); 
 		exitButton.addActionListener(this); 		
         
-		
-		// add components to mainFrame using borderlayout
+		// Adds components to mainFrame using borderlayout
         BorderLayout borderLayout = new BorderLayout(500, 500);	
 		add(borderLayout.NORTH, mb);
 		add(borderLayout.CENTER, mainPanel);
 		add(borderLayout.SOUTH, buttonPanel);
 		
-        setVisible(true); // Make MainFrame visible
+        setVisible(true); // Makes MainFrame visible
 		
 		// JMenu Listener for howTo
 		howTo.addActionListener(new ActionListener() 
@@ -119,7 +115,6 @@ public class MainFrame  extends JFrame implements ActionListener
 		// JMenu Listener for about
 		about.addActionListener(new ActionListener() 
 		{
-
 			@Override
             public void actionPerformed(ActionEvent e) {
 					JFrame f = new JFrame();
@@ -131,9 +126,7 @@ public class MainFrame  extends JFrame implements ActionListener
 					"\n Music Source and Visager's Music: " + 
 					"\n https://freemusicarchive.org/search/?quicksearch=visager");
 					about.setSelected(false);
-				
 			}
-
 		});		
 	}		
 	
@@ -143,7 +136,6 @@ public class MainFrame  extends JFrame implements ActionListener
 		{
 			comm.setGameFrame(new GameFrame(comm));
 			setVisible(false);
-			//comm.showGameFrame();
 		}	
 		if(e.getSource() == exitButton)
 		{
