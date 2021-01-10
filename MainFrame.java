@@ -15,7 +15,7 @@ import javax.swing.event.MenuListener;
 public class MainFrame  extends JFrame implements ActionListener
 {
 	private JButton playButton; 
-	private JButton scoreButton;
+	
 	private JButton exitButton; 
 	Common comm;
 	GameFrame gameFrame;
@@ -36,12 +36,12 @@ public class MainFrame  extends JFrame implements ActionListener
 		
 		// Buttons
 		playButton  = new JButton("", new ImageIcon("button_play.png"));	
-		scoreButton  = new JButton("", new ImageIcon("button_score.png"));
+		//scoreButton  = new JButton("", new ImageIcon("button_score.png"));
 		exitButton = new JButton("", new ImageIcon("button_exit.png"));		
 
 		//Button Settings
 		playButton.setContentAreaFilled(false);
-		scoreButton.setContentAreaFilled(false);
+		//scoreButton.setContentAreaFilled(false);
 		exitButton.setContentAreaFilled(false);
 
 		//Fonts
@@ -69,7 +69,7 @@ public class MainFrame  extends JFrame implements ActionListener
 		mainPanel.add(filler);
 		
 		// Title Label
-		JLabel title = new JLabel("Which Bin?");				
+		JLabel title = new JLabel("Garbage Grouper");				
 		title.setFont(f1);
 		title.setForeground(mbC);
 		title.setVerticalAlignment(JLabel.CENTER);
@@ -90,8 +90,8 @@ public class MainFrame  extends JFrame implements ActionListener
 		buttonPanel.setBackground(bgC);
 		buttonPanel.add(playButton); 
 		playButton.addActionListener(this); 
-		buttonPanel.add(scoreButton); 
-		scoreButton.addActionListener(this);		
+		//buttonPanel.add(scoreButton); 
+		//scoreButton.addActionListener(this);		
 		buttonPanel.add(exitButton); 
 		exitButton.addActionListener(this); 		
         
@@ -135,10 +135,10 @@ public class MainFrame  extends JFrame implements ActionListener
 			setVisible(false);
 			//comm.showGameFrame();
 		}
-		if(e.getSource() == scoreButton)
-		{
+		//if(e.getSource() == scoreButton)
+		//{
 			//comm.showScorePanel();
-		}		
+		//}		
 		if(e.getSource() == exitButton)
 		{
 			System.exit(0);
