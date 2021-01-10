@@ -26,14 +26,18 @@ public class GameFrame extends JFrame{
         Border padding = BorderFactory.createEmptyBorder(10, 10, 10, 10);
         contentPanel.setBorder(padding);
         this.setContentPane(contentPanel);
+        this.getContentPane().setBackground(new Color(230,242,230));
         
         gamePanel = new JPanel(new BorderLayout());
+        gamePanel.setBackground(new Color(230,242,230));
         scoreboard = new Scoreboard();
         trashPrompt = new TrashCan(comm);
+        trashPrompt.setBackground(new Color(230,242,230));
         sound = new Sound();
         // music = new music(whatever) --> in your constructor for music something something idk implement it
         // Sound sound = new Sound(); 
         menuPanel = new JPanel(new FlowLayout());
+        menuPanel.setBackground(new Color(230,242,230));
         JButton button = new JButton("", new ImageIcon("button_back.png"));
         button.setContentAreaFilled(false);
         button.addActionListener(new ActionListener(){
@@ -48,6 +52,7 @@ public class GameFrame extends JFrame{
 
 
         guessPanel = new JPanel(new GridLayout(1,4, 10, 50));
+        guessPanel.setBackground(new Color(230,242,230));
         garbage = new JButton("", new ImageIcon("images/Garbage.png"));
         garbage.addActionListener(new ActionListener(){
             @Override
