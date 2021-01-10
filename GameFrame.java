@@ -2,6 +2,7 @@ import java.awt.*;
 import java.util.*;
 import javax.swing.*;
 import java.awt.event.*;
+import javax.swing.border.Border;
 public class GameFrame extends JFrame{
     
     //Instance Fields
@@ -13,25 +14,32 @@ public class GameFrame extends JFrame{
     private JButton garbage;
     private JButton recycling;
     private JButton compost;
+    private Sound sound;
     
     //Constructor
     public GameFrame(Common comm){
 		
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(500, 500);
+        this.setSize(850, 500);
         this.setLocationRelativeTo(null); //center frame on screen
-
+        JPanel contentPanel = new JPanel();
+        Border padding = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+        contentPanel.setBorder(padding);
+        this.setContentPane(contentPanel);
+        
         gamePanel = new JPanel(new BorderLayout());
         scoreboard = new Scoreboard();
         trashPrompt = new TrashCan(comm);
-
-
+        sound = new Sound();
+        // music = new music(whatever) --> in your constructor for music something something idk implement it
+        // Sound sound = new Sound(); 
         menuPanel = new JPanel(new FlowLayout());
         JButton button = new JButton("", new ImageIcon("button_back.png"));
         button.setContentAreaFilled(false);
         button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                sound.stopSound();
                 closeFrame(); // Closes this GameFrame
 				comm.showMainFrame();
             }
@@ -39,7 +47,7 @@ public class GameFrame extends JFrame{
         menuPanel.add(button);
 
 
-        guessPanel = new JPanel(new GridLayout(1,3, 10, 50));
+        guessPanel = new JPanel(new GridLayout(1,4, 10, 50));
         garbage = new JButton("", new ImageIcon("images/Garbage.png"));
         garbage.addActionListener(new ActionListener(){
             @Override
@@ -52,6 +60,7 @@ public class GameFrame extends JFrame{
                 else {
                     JOptionPane.showMessageDialog(new JFrame(),
                         "Game Over! That does not belong in the garbage bin. Better luck next time!", "GAME OVER!", JOptionPane.ERROR_MESSAGE);
+                        sound.stopSound();
                         closeFrame();
                         comm.showMainFrame();
                 }
@@ -70,6 +79,7 @@ public class GameFrame extends JFrame{
                 else {
                     JOptionPane.showMessageDialog(new JFrame(),
                         "Game Over! That does not belong in the recycling bin. Better luck next time!", "GAME OVER!", JOptionPane.ERROR_MESSAGE);
+                    sound.stopSound();
                     closeFrame();
                     comm.showMainFrame();
                 }
@@ -88,15 +98,16 @@ public class GameFrame extends JFrame{
                 else {
                     JOptionPane.showMessageDialog(new JFrame(),
                         "Game Over! That does not belong in the green bin. Better luck next time!", "GAME OVER!", JOptionPane.ERROR_MESSAGE);
+                    sound.stopSound();
                     closeFrame();
                     comm.showMainFrame();
                 }
             }
         });
         guessPanel.add(compost);
+        guessPanel.add(scoreboard);
 
         gamePanel.add(guessPanel, BorderLayout.CENTER);
-        gamePanel.add(scoreboard, BorderLayout.EAST);
         gamePanel.add(trashPrompt, BorderLayout.NORTH);
         gamePanel.add(menuPanel, BorderLayout.SOUTH);
         this.add(gamePanel);
