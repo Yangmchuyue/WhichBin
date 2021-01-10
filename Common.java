@@ -18,13 +18,11 @@ public class Common
 	public void initialize() throws IOException
 	{
 		mainFrame = new MainFrame(this);	
-		//gameFrame = new GameFrame(this);
 	}
 
 	private void hideAllFrames()
 	{
 		mainFrame.setVisible(false);	
-		//gameFrame.setVisible(false);
 	}
 	
 	public void showMainFrame()
@@ -38,8 +36,8 @@ public class Common
 	}
 	public void closeGameFrame()
 	{
-		gameFrame.closeFrame(); // Closes this GameFrame
+		gameFrame.closeFrame();
 		showMainFrame();
 	}
-} // end of class Common
+}
 	
