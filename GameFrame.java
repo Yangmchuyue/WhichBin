@@ -34,8 +34,6 @@ public class GameFrame extends JFrame{
         trashPrompt = new TrashCan(comm);
         trashPrompt.setBackground(new Color(230,242,230));
         sound = new Sound();
-        // music = new music(whatever) --> in your constructor for music something something idk implement it
-        // Sound sound = new Sound(); 
         menuPanel = new JPanel(new FlowLayout());
         menuPanel.setBackground(new Color(230,242,230));
         JButton button = new JButton("", new ImageIcon("images/button_back.png"));
