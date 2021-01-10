@@ -2,6 +2,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Random;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 
@@ -28,17 +29,21 @@ public class TrashCan extends JPanel{
     private Trash trash;
     private Timer timer;
     private TimerTask timerTask;
+    private TimerTask timerTask2;
     private Random random;
     private int randomNumber;
     private int stop;
     private JPanel displayholder;
     private JButton display;
+    private JLabel timeLabel;
+    private int timeElapsed;
     Common comm;
 
     // Constructor
     public TrashCan(Common comm) {
         
         super(new FlowLayout());
+        timeElapsed = 0;
         this.comm = comm;
         displayholder = new JPanel();
         this.add(displayholder);
@@ -47,7 +52,19 @@ public class TrashCan extends JPanel{
         display.setMaximumSize(new Dimension(400, 400));
         displayholder.add(display);
         displayholder.validate();
-    
+
+        timeLabel = new JLabel("Time Remaining: 0 Seconds");
+        timeLabel.setFont(new Font("Open Sans", Font.BOLD, 14));
+        timeLabel.setOpaque(true);
+        Border border = BorderFactory.createLineBorder(new Color(40,108,6));
+        timeLabel.setBackground(new Color(167,230,140));
+        timeLabel.setForeground(new Color(210,20,4));
+        timeLabel.setBorder(border);
+        timeLabel.setPreferredSize(new Dimension(250, 100));
+        timeLabel.setHorizontalAlignment(JLabel.CENTER);
+        timeLabel.setVerticalAlignment(JLabel.CENTER);
+        this.add(timeLabel);
+
         random = new Random();
         randomNumber = 0;
         trash =  new Trash(0, allTrash[0]);
@@ -65,12 +82,13 @@ public class TrashCan extends JPanel{
         makeTrash();
         display.setMaximumSize(new Dimension(400, 400));
         displayholder.add(display);
+        timeElapsed = 0;
+        setTime(score);
+        startTimer();
         displayholder.revalidate();
         displayholder.repaint();
         this.revalidate();
         this.repaint();
-        setTime(score);
-        startTimer();
     }
 
     // End Level
@@ -105,7 +123,14 @@ public class TrashCan extends JPanel{
             }
         };
         timer.schedule(timerTask, stop);
-        
+        timerTask2 = new TimerTask(){
+            public void run(){
+                int timeLeft = (stop - timeElapsed)/1000;
+                timeLabel.setText("Time Remaining: " + timeLeft + " Seconds");
+                timeElapsed = timeElapsed + 1000;
+            }
+        };
+        timer.scheduleAtFixedRate(timerTask2, 0, 1000);
     }
 
     public void endTimer(){
