@@ -43,9 +43,6 @@ public class TrashCan extends JPanel{
         displayholder = new JPanel();
         this.add(displayholder);
         display = new JButton("", new ImageIcon(allTrash[0]));
-        display.setOpaque(false);
-        display.setContentAreaFilled(false);
-        display.setEnabled(false);
 
         display.setMaximumSize(new Dimension(400, 400));
         displayholder.add(display);
@@ -63,9 +60,7 @@ public class TrashCan extends JPanel{
         setRandomNumber();
         displayholder.remove(display);
         display = new JButton("", new ImageIcon(allTrash[randomNumber]));
-        display.setOpaque(false);
         display.setContentAreaFilled(false);
-        display.setEnabled(false);
 
         makeTrash();
         display.setMaximumSize(new Dimension(400, 400));
