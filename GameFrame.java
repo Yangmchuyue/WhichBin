@@ -46,7 +46,6 @@ public class GameFrame extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 int guess = trashPrompt.endLevel(); 
-                System.out.println("Guess: " + 0);
                 if(guess == 0){
                     scoreboard.addToScore(100);
                     trashPrompt.startLevel(scoreboard.getScore()); // starts the next level
@@ -66,7 +65,6 @@ public class GameFrame extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 int guess = trashPrompt.endLevel();
-                System.out.println("Guess: " + 1);
                 if(guess == 1){
                     scoreboard.addToScore(100);
                     trashPrompt.startLevel(scoreboard.getScore()); 
@@ -86,7 +84,6 @@ public class GameFrame extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 int guess = trashPrompt.endLevel();
-                System.out.println("Guess: " + 2);
                 if(guess == 2){
                     scoreboard.addToScore(100);
                     trashPrompt.startLevel(scoreboard.getScore());
