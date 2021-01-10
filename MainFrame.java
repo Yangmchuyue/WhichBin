@@ -108,7 +108,8 @@ public class MainFrame  extends JFrame implements ActionListener
 			{
 				//System.out.println("menuSelected");
 				JFrame f = new JFrame();
-				JOptionPane.showMessageDialog(f, "How To Play");
+				JOptionPane.showMessageDialog(f, "How To Play: \n
+				");
 			}
 
 			public void menuDeselected(MenuEvent e) 
