@@ -18,7 +18,7 @@ public class Scoreboard extends JPanel{
 
     public Scoreboard(){
         super();
-
+        this.setBackground(new Color(230,242,230));
         score = 0;
         scoreLabel = new JLabel("Score: " + getScore());
         scoreLabel.setFont(new Font("Open Sans", Font.BOLD, 18));
