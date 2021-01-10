@@ -51,6 +51,3 @@ public class Sound {
             clip.close();
         }
     }
-
-
-   
