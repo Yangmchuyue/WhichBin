@@ -43,7 +43,6 @@ public class GameFrame extends JFrame{
         button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                sound.stopSound();
                 closeFrame(); // Closes this GameFrame
 				comm.showMainFrame();
             }
@@ -65,7 +64,6 @@ public class GameFrame extends JFrame{
                 else {
                     JOptionPane.showMessageDialog(new JFrame(),
                         "Game Over! That does not belong in the garbage bin. Better luck next time!", "GAME OVER!", JOptionPane.ERROR_MESSAGE);
-                        sound.stopSound();
                         closeFrame();
                         comm.showMainFrame();
                 }
@@ -84,7 +82,6 @@ public class GameFrame extends JFrame{
                 else {
                     JOptionPane.showMessageDialog(new JFrame(),
                         "Game Over! That does not belong in the recycling bin. Better luck next time!", "GAME OVER!", JOptionPane.ERROR_MESSAGE);
-                    sound.stopSound();
                     closeFrame();
                     comm.showMainFrame();
                 }
@@ -103,7 +100,6 @@ public class GameFrame extends JFrame{
                 else {
                     JOptionPane.showMessageDialog(new JFrame(),
                         "Game Over! That does not belong in the green bin. Better luck next time!", "GAME OVER!", JOptionPane.ERROR_MESSAGE);
-                    sound.stopSound();
                     closeFrame();
                     comm.showMainFrame();
                 }
@@ -131,6 +127,7 @@ public class GameFrame extends JFrame{
     
     //Mutators
     public void closeFrame(){
+        sound.stopSound();
         super.dispose();
     }
 
