@@ -13,7 +13,7 @@ public class Trash{
         this.imageName = imageName;
     }
 
-    // Accesors
+    // Accesor Methods
     public int getImageNumber(){
         return imageNumber;
     }
@@ -22,7 +22,7 @@ public class Trash{
         return imageName;
     }
 
-    // Mutators
+    // Mutator Methods
     public void setImageNumber(int imageNumber){
         this.imageNumber = imageNumber;
     }   
@@ -30,39 +30,4 @@ public class Trash{
     public void setImageName(String imageName){
         this.imageName = imageName;
     }   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
