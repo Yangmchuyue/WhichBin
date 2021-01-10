@@ -14,35 +14,23 @@ public class Scoreboard extends JPanel{
 */
     //Instance Fields
     private int score;
-    private long startTime;
     private JLabel scoreLabel;
-    private JLabel timeLabel;
 
     public Scoreboard(){
-        super(new GridLayout(2, 1));
-        this.setBackground(new Color(167,230,140));
-
+        super();
+        this.setBackground(new Color(230,242,230));
         score = 0;
-        startTime = System.nanoTime();
         scoreLabel = new JLabel("Score: " + getScore());
-        scoreLabel.setFont(new Font("Open Sancs", Font.BOLD, 18));
+        scoreLabel.setFont(new Font("Open Sans", Font.BOLD, 18));
         Border border = BorderFactory.createLineBorder(new Color(40,108,6));
+        scoreLabel.setOpaque(true);
+        scoreLabel.setBackground(new Color(167,230,140));
         scoreLabel.setForeground(new Color(40,108,6));
         scoreLabel.setBorder(border);
         scoreLabel.setPreferredSize(new Dimension(150, 100));
         scoreLabel.setHorizontalAlignment(JLabel.CENTER);
         scoreLabel.setVerticalAlignment(JLabel.CENTER);
         this.add(scoreLabel);
-        
-        timeLabel = new JLabel("Time: " + getTimeElapsed());
-        timeLabel.setFont(new Font("Open Sans", Font.BOLD, 18));
-        border = BorderFactory.createLineBorder(new Color(40,108,6));
-        timeLabel.setForeground(new Color(40,108,6));
-        timeLabel.setBorder(border);
-        timeLabel.setPreferredSize(new Dimension(150, 100));
-        timeLabel.setHorizontalAlignment(JLabel.CENTER);
-        timeLabel.setVerticalAlignment(JLabel.CENTER);
-        this.add(timeLabel);
     }
 
     //Accessor Methods
@@ -52,36 +40,14 @@ public class Scoreboard extends JPanel{
         return score;
     }
 
-    //Returns the elapsed time in seconds
-    //May throw exception
-    public int getTimeElapsed(){
-        long elapsedTime = System.nanoTime() - startTime;
-        int elapsedTimeInSeconds = (int) elapsedTime/1000000000;
-        return elapsedTimeInSeconds;
-    }
-
     //Mutator Methods
     public void addToScore(int points){
         score = score + points;
         this.remove(scoreLabel);
-        this.remove(timeLabel);
         scoreLabel.setText("Score: " + getScore());
-        timeLabel.setText("Time: " + getTimeElapsed());
         this.add(scoreLabel);
-        this.add(timeLabel);
         this.revalidate();
         this.repaint();
     }
-    public void displayNewTime(){
-        this.remove(scoreLabel);
-        this.remove(timeLabel);
-        scoreLabel.setText("Score: " + getScore());
-        timeLabel.setText("Time: " + getTimeElapsed());
-        this.add(scoreLabel);
-        this.add(timeLabel);
-        this.revalidate();
-        this.repaint();
-    }
-    //Test Git Commands
 }
 
