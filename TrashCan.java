@@ -102,6 +102,7 @@ public class TrashCan extends JPanel{
             }
         };
         timer.schedule(timerTask, stop);
+        
     }
 
     public void endTimer(){
